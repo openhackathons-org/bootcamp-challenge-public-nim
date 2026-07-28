@@ -18,6 +18,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        sqlite3 \
         tini \
     && rm -rf /var/lib/apt/lists/*
 
