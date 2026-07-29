@@ -38,6 +38,8 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version "${CODE_S
     && code-server --install-extension ms-python.python --install-extension ms-toolsai.jupyter \
     && code-server --uninstall-extension ms-python.vscode-python-envs
 
+RUN curl -fsSL https://opencode.ai/install | bash
+
 EXPOSE 8888 6006
 
 CMD ["code-server", "/workspace/agentic-ai-bootcamp", "--bind-addr", "0.0.0.0:8888", "--auth", "none"]
