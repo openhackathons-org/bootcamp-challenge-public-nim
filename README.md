@@ -33,15 +33,6 @@ The tools and frameworks used in this bootcamp are as follows
 Participant:
 * Knowledge in at least 1 agentic framework - e.g. LangChain/LangGraph, LlamaIndex.  
 * Experience in using docker to deploy workloads.  
-
-Development environment:
-* Python 3.13
-* UV python package manager
-* Modern IDE - e.g. VSCode, Cursor, Zed
-* Permission to install software and python packages
-* Unix-like operating system - e.g. ubuntu, MacOS (preferred)
-
-Miscellaneous:
 * Nvidia NGC API Key
 
 ## Personas
