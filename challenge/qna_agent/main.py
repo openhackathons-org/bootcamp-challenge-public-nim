@@ -79,7 +79,7 @@ class SkillMiddleware(AgentMiddleware):
             "`bash('cat /path/to/skill/SKILL.md')`. "
             "You can also use the bash tool to execute SQL queries with sqlite3. e.g., "
             "`bash('sqlite3 database.db \"SELECT ...\"')`."
-            "Do not use sqlite3 to read schema of tables."
+            "Do not run sqlite3 before reading SKILL.md"
         )
 
         # Append to system message content blocks
@@ -92,7 +92,7 @@ class SkillMiddleware(AgentMiddleware):
         return response
 
 def create_sql_agent(skills_dir,inf_url,nvidia_api_key,debug=False):
-    model_id = "openai/gpt-oss-120b"
+    model_id = "nvidia/nemotron-3-nano-30b-a3b"
     nvidia_model = init_chat_model(model=model_id,base_url=inf_url,api_key=nvidia_api_key,model_provider="nvidia")
     # Create the agent with skill support
     agent = create_agent(

@@ -18,6 +18,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        sqlite3 \
         tini \
     && rm -rf /var/lib/apt/lists/*
 
@@ -36,6 +37,8 @@ RUN python -m ipykernel install \
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version "${CODE_SERVER_VERSION}" \
     && code-server --install-extension ms-python.python --install-extension ms-toolsai.jupyter \
     && code-server --uninstall-extension ms-python.vscode-python-envs
+
+RUN curl -fsSL https://opencode.ai/install | bash
 
 EXPOSE 8888 6006
 
