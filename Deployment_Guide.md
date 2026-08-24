@@ -42,8 +42,15 @@ Create and activate a new virtual environment using **Python 3.13 or newer**:
 # Create virtual environment
 python -m venv agentic-ai-env
 
-# Activate virtual environment
+# Activate virtual environment for Linux / macOS
 source agentic-ai-env/bin/activate
+
+# Activate virtual environment for Windows
+# Command Prompt (cmd)
+agentic-ai-env\Scripts\activate.bat
+
+#PowerShell
+.\agentic-ai-env\Scripts\Activate.ps1
 ```
 
 #### 2. Installing Required Packages
