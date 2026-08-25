@@ -27,8 +27,7 @@ RUN python -m venv "${VIRTUAL_ENV}" \
 
 WORKDIR /workspace/agentic-ai-bootcamp
 
-COPY requirements.txt ./
-RUN uv pip install --no-cache -r requirements.txt
+RUN uv sync
 RUN python -m ipykernel install \
     --sys-prefix \
     --name python3 \
