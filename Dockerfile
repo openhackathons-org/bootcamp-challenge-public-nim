@@ -5,6 +5,7 @@ ARG CODE_SERVER_VERSION=4.112.0
 
 ENV VIRTUAL_ENV=/opt/agentic-ai-env \
     PATH="/opt/agentic-ai-env/bin:${PATH}" \
+    UV_PROJECT_ENVIRONMENT=/opt/agentic-ai-env \
     UV_LINK_MODE=copy \
     JUPYTER_PLATFORM_DIRS=1 \
     NAT_TELEMETRY_ENABLED=false \
@@ -27,8 +28,8 @@ RUN python -m venv "${VIRTUAL_ENV}" \
 
 WORKDIR /workspace/agentic-ai-bootcamp
 
-COPY requirements.txt ./
-RUN uv pip install --no-cache -r requirements.txt
+COPY pyproject.toml uv.lock ./
+RUN uv sync
 RUN python -m ipykernel install \
     --sys-prefix \
     --name python3 \
