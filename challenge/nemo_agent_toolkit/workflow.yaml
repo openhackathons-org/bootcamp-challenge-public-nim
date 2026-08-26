@@ -1,8 +1,8 @@
 llms:
   nim_llm:
     _type: nim
-    model_name: nvidia/nemotron-3-nano-30b-a3b
-    base_url: https://integrate.api.nvidia.com/v1
+    model_name: ${MODEL_ID}
+    base_url: ${INF_URL}
     api_key: dummy
     max_tokens: 4096
 

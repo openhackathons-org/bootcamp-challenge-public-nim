@@ -91,8 +91,7 @@ class SkillMiddleware(AgentMiddleware):
         response = handler(modified_request)
         return response
 
-def create_sql_agent(skills_dir,inf_url,nvidia_api_key,debug=False):
-    model_id = "nvidia/nemotron-3-nano-30b-a3b"
+def create_sql_agent(skills_dir,model_id,inf_url,nvidia_api_key,debug=False):
     nvidia_model = init_chat_model(model=model_id,base_url=inf_url,api_key=nvidia_api_key,model_provider="nvidia")
     # Create the agent with skill support
     agent = create_agent(

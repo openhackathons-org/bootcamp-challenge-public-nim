@@ -45,10 +45,10 @@ if __name__ == '__main__':
                        default=f"http://localhost:{os.environ.get('MCP_PORT', '8000')}/mcp",
                        help='mcp server url')
     parser.add_argument('--inf-url', 
-                       default="https://integrate.api.nvidia.com/v1",
+                       default=os.environ.get("INF_URL"),
                        help='base url for inference')
     parser.add_argument('--inf-url-qna-agent', 
-                       default="https://integrate.api.nvidia.com/v1",
+                       default=os.environ.get("INF_URL"),
                        help='base url for inference')
     args = parser.parse_args()
     asyncio.run(main(args.nvidia_api_key,args.mcp_server_url,args.inf_url,args.inf_url_qna_agent))

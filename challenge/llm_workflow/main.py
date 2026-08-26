@@ -23,7 +23,7 @@ from .mcp_http_client import MCPHTTPCLIENT
 skills_dir = Path(__file__).parent.parent.resolve() / 'qna_agent' / 'skills'
 chinook_db_path = Path(__file__).parent.resolve() / "chinook.db"
 
-model_id='nvidia/nemotron-3-nano-30b-a3b'
+model_id= os.environ.get("MODEL_ID")
 
 class State(TypedDict):
     """Agent state."""
