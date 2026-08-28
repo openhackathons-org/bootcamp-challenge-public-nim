@@ -18,6 +18,13 @@ Ensure the following tools are installed on your system:
 * [Git Version Control](https://github.com/git-guides/install-git)
 * [Docker](https://docs.docker.com/engine/install/)
 
+#### Clone the git repository
+
+```bash
+https://github.com/openhackathons-org/agentic-ai-bootcamp
+cd agentic-ai-bootcamp
+```
+
 #### Setup environment variables
 
 ```bash
@@ -26,13 +33,7 @@ PHOENIX_PORT=<dynamic_allocation> # Port to access phoenix server (used in lab 6
 MCP_PORT=<dynamic_allocation> # Port to access HTTP based MCP Server (used in labs 3,4,6 and challenge)
 NIM_PORT=<dynamic_allocation> # Port to access NIM server (used in labs 2,5,6 and challenge)
 INF_URL="http://${HOSTNAME}:${NIM_PORT}/v1" # NIM server URL (used in labs 2,5,6 and challenge)
-```
-
-#### Clone the git repository
-
-```bash
-https://github.com/openhackathons-org/agentic-ai-bootcamp
-cd agentic-ai-bootcamp
+BOOTCAMP_DIR=$PWD # path to agentic-ai-bootcamp
 ```
 
 #### Install project dependencies 
@@ -54,7 +55,19 @@ curl -fsSL https://code-server.dev/install.sh | sh
 
 # Install Python Extensions
 code-server --install-extension ms-python.python --install-extension ms-toolsai.jupyter
-code-server --bind-addr 0.0.0.0:$VSCODE_PORT --auth none <path to agentic ai bootcamp>
+
+# Configure settings for VS Code Server
+cat > "$BOOTCAMP_DIR/.vscode/settings.json" << EOF
+{
+  "python.defaultInterpreterPath": "$BOOTCAMP_DIR/.venv/bin/python",
+  "python.terminal.executeInFileDir": true,
+  "terminal.integrated.cwd": "$BOOTCAMP_DIR",
+  "python.terminal.activateEnvironment": true
+}
+EOF
+
+# Start VS Code Server
+code-server --bind-addr 0.0.0.0:$VSCODE_PORT --auth none $BOOTCAMP_DIR
 ```
 
 #### 5. Opening the labs
