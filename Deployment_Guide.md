@@ -22,6 +22,20 @@ https://github.com/openhackathons-org/agentic-ai-bootcamp
 cd agentic-ai-bootcamp
 ```
 
+#### Setup environment variables
+
+For a multi-tenant setup, the below ports will need to be dynamically allocated.
+
+```
+BOOTCAMP_DIR=$PWD # path to agentic-ai-bootcamp
+VSCODE_PORT=8080 # Port to access VSCode (entry point to IDE)
+export PHOENIX_PORT=6006 # Port to access phoenix server
+export MCP_PORT=9001 # Port to access HTTP based MCP Server
+export NIM_PORT=9002 # Port to access NIM server
+export INF_URL="http://${HOSTNAME}:${NIM_PORT}/v1" # NIM server URL
+export MODEL_ID=nvidia/nemotron-3-nano
+```
+
 #### Install project dependencies 
 
 ```bash
@@ -34,6 +48,27 @@ uv sync
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-#### Attempt the labs
+#### Setup VS Code Server
 
-Open [start_here.ipynb](./tutorial/start_here.ipynb)
+```
+curl -fsSL https://code-server.dev/install.sh | sh
+
+code-server --install-extension ms-python.python --install-extension ms-toolsai.jupyter
+
+cat > "$BOOTCAMP_DIR/.vscode/settings.json" << EOF
+{
+  "python.defaultInterpreterPath": "$BOOTCAMP_DIR/.venv/bin/python",
+  "python.terminal.executeInFileDir": true,
+  "terminal.integrated.cwd": "$BOOTCAMP_DIR",
+  "python.terminal.activateEnvironment": true
+}
+EOF
+
+code-server --bind-addr 0.0.0.0:$VSCODE_PORT --auth none $BOOTCAMP_DIR
+```
+
+#### Opening the labs
+
+With code-server running, open http://$HOSTNAME:$VSCODE_PORT. In the workspace, open the tutorial directory and start from start_here.ipynb.
+
+When you are finished with the labs close your shell or pressing Ctrl+D in the terminal. Congratulations, you've successfully built and deployed an Agentic AI Bootcamp!
