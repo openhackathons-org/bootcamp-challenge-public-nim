@@ -6,8 +6,8 @@ This bootcamp is a hands-on path from inference to production-style agents. You 
 ## Bootcamp Content
 This content contains 6 Labs, plus a challenge and a bonus challenge:
 
-- Lab 1: Setting Up OpenCode
-- Lab 2: Using NVIDIA NIM via Cloud and Local Endpoints
+- Lab 1: Using NVIDIA NIM via Cloud and Local Endpoints
+- Lab 2: Setting Up OpenCode
 - Lab 3: Introduction to Model Context Protocol (MCP)
 - Lab 4: Low-Level MCP Server Implementation
 - Lab 5: Building Agentic Workflows with LangGraph
@@ -19,8 +19,8 @@ This content contains 6 Labs, plus a challenge and a bonus challenge:
 
 The tools and frameworks used in this bootcamp are as follows
 
-1. [OpenCode](https://opencode.ai/)
-2. [NVIDIA NIM](https://docs.nvidia.com/nim/index.html)
+1. [NVIDIA NIM](https://docs.nvidia.com/nim/index.html)
+2. [OpenCode](https://opencode.ai/)
 3. [Model Context Protocol](https://modelcontextprotocol.io/introduction)
 4. [LangGraph](https://langchain-ai.github.io/langgraph/)
 5. [NeMo Agent Toolkit](https://docs.nvidia.com/nemo/agent-toolkit/latest/index.html)
