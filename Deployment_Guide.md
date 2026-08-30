@@ -30,8 +30,8 @@ For a multi-tenant setup, the below ports will need to be dynamically allocated.
 BOOTCAMP_DIR=$PWD # path to agentic-ai-bootcamp
 VSCODE_PORT=8080 # Port to access VSCode (entry point to IDE)
 export PHOENIX_PORT=6006 # Port to access phoenix server
-export MCP_PORT=9001 # Port to access HTTP based MCP Server
-export NIM_PORT=9002 # Port to access NIM server
+export MCP_PORT=8001 # Port to access HTTP based MCP Server
+export NIM_PORT=8000 # Port to access NIM server
 export INF_URL="http://${HOSTNAME}:${NIM_PORT}/v1" # NIM server URL, use https://integrate.api.nvidia.com/v1 if using cloud endpoints
 export MODEL_ID=nvidia/nemotron-3-nano
 ```
